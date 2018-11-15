@@ -3,12 +3,24 @@ server:
 spring:
   datasource:
     name: spring_mybatis
-    type: com.alibaba.druid.pool.DruidDataSource
-    druid:
+#     type: com.alibaba.druid.pool.DruidDataSource
+    master:
+          driver-class-name: com.mysql.jdbc.Driver
+          jdbcurl: jdbc:mysql://localhost/mytest?userUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+          username: root
+          password: 123456
+    slave:
       driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost/mytest?userUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+      url: jdbc:mysql://localhost/wang_shiwei?userUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
       username: root
       password: 123456
+    read: get,select,count,list,query,find
+    write: add,create,update,delete,remove,insert
+    druid:
+#      driver-class-name: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://localhost/mytest?userUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=UTC
+#      username: root
+#      password: 123456
       initial-size: 1
       min-idle: 1
       max-active: 20
