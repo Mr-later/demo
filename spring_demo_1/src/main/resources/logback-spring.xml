@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 开发环境日志级别为DEBUG/并且开发环境不写日志文件 -->
+<springProfile name="dev">
+    <root level="DEBUG">
+        <appender-ref ref="STDOUT"/>
+    </root>
+</springProfile>
+
+<!-- 测试环境日志级别为INFO/并且记录日志文件 -->
+<springProfile name="test">
+<root level="INFO">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="STDOUT"/>
+</root>
+</springProfile>
