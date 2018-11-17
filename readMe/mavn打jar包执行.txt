@@ -1,0 +1,15 @@
+打jar: mvn clean
+
+
+mvn compile (可选)
+
+
+mvn package
+
+
+mvn -Dmaven.test.skip=true package（mvn package不行就换它）
+
+我们在target下可以发现一个名为spring-boot-config-0.0.1-SNAPSHOT.jar的包
+接着在打开 cmd 程序，输入执行：java -jar spring-boot-config-0.0.1-SNAPSHOT.jar -
+后面可以加配置参数如： java -jar spring-boot-config-0.0.1-SNAPSHOT.jar --spring.profiles.active=test --my1.age=32
+此处参数就是在application中配置的参数
