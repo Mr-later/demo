@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-@MapperScan("com.winterchen.dao")
+@MapperScan("com.wsw.springmybatisdemo.dao")
 @EnableTransactionManagement
 public class DataSourceConfig {
     private static Logger logger = LoggerFactory.getLogger(DataSourceConfig.class);
@@ -61,14 +61,14 @@ public class DataSourceConfig {
     @Value("${spring.datasource.druid.validation-query}")
     private String validationQuery;
 
-    @Value("${spring.datasource.druid.test-while-idle}")
-    private Boolean testWhileIdle;
+//    @Value("${spring.datasource.druid.test-while-idle}")
+//    private Boolean testWhileIdle;
 
-    @Value("${spring.datasource.druid.test-on-borrow}")
-    private boolean testOnBorrow;
-
-    @Value("${spring.datasource.druid.test-on-return}")
-    private boolean testOnReturn;
+//    @Value("${spring.datasource.druid.test-on-borrow}")
+//    private boolean testOnBorrow;
+//
+//    @Value("${spring.datasource.druid.test-on-return}")
+//    private boolean testOnReturn;
 
     @Value("${spring.datasource.druid.pool-prepared-statements}")
     private boolean poolPreparedStatements;
@@ -110,9 +110,9 @@ public class DataSourceConfig {
         dataSource.setTimeBetweenEvictionRunsMillis(timeBetweenEvictionRunsMillis);
         dataSource.setMinEvictableIdleTimeMillis(minEvictableIdleTimeMillis);
         dataSource.setValidationQuery(validationQuery);
-        dataSource.setTestWhileIdle(testWhileIdle);
-        dataSource.setTestOnBorrow(testOnBorrow);
-        dataSource.setTestOnReturn(testOnReturn);
+       // dataSource.setTestWhileIdle(testWhileIdle);
+        //dataSource.setTestOnBorrow(testOnBorrow);
+        //dataSource.setTestOnReturn(testOnReturn);
         dataSource.setPoolPreparedStatements(poolPreparedStatements);
         dataSource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
         return dataSource;

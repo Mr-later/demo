@@ -1,8 +1,10 @@
-package com.wsw.springmybatisdemo.aop;
+package com.wsw.springmybatisdemo.config;
 
-import com.wsw.springmybatisdemo.config.DatabaseContextHolder;
-import com.wsw.springmybatisdemo.config.DatabaseType;
-import com.wsw.springmybatisdemo.config.DynamicDataSource;
+import com.alibaba.druid.support.json.JSONUtils;
+import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
@@ -27,8 +29,8 @@ public class DataSourceAspect {
     public void before(JoinPoint point) { //在指定切点的方法之前执行
         String className = point.getTarget().getClass().getName();
         String method = point.getSignature().getName();
-        String args = StringUtils.join(point.getArgs(), ",");
-        logger.info("className:{}, method:{}, args:{} ", className, method, args);
+        Object[] args = point.getArgs();
+        logger.info("className:{}, method:{}, args:{} ", className, method);
         try {
             for (DatabaseType type : DatabaseType.values()) {
                 List<String> values = DynamicDataSource.METHOD_TYPE_MAP.get(type);
