@@ -3,6 +3,13 @@ package com.wsw.modle;
 import java.io.Serializable;
 
 public class User implements Serializable {
+
+    public User(Integer userId, String userName, String password) {
+        this.userId = userId;
+        this.userName = userName;
+        this.password = password;
+    }
+
     private Integer userId;
 
     private String userName;
