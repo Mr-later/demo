@@ -134,7 +134,6 @@ public class DataSourceConfig {
         Map<Object, Object> targetDataSources = new HashMap<>();
         targetDataSources.put(DatabaseType.master, master);
         targetDataSources.put(DatabaseType.slave, slave);
-
         DynamicDataSource dataSource = new DynamicDataSource();
         dataSource.setTargetDataSources(targetDataSources);// 该方法是AbstractRoutingDataSource的方法
         dataSource.setDefaultTargetDataSource(slave);// 默认的datasource设置为myTestDbDataSource
